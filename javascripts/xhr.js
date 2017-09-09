@@ -22,7 +22,7 @@ oldCatStore.catXHR =() => {
 var myCats = new XMLHttpRequest();
 myCats.addEventListener('load', CatStore.catLoadWorks);
 myCats.addEventListener('error', CatStore.itBroke);
-myCats.open('GET', 'db/cats.json');
+myCats.open('GET', 'https://random-dogs-api.herokuapp.com/cats/20');
 myCats.send();
 };
 
