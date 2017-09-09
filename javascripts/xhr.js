@@ -1,17 +1,21 @@
-let CatStore = ((oldCatStore) => {
+var CatStore = ((oldCatStore) => {
 
-	oldCatStore.catLoadWorks = () => {	
+oldCatStore.catLoadWorks = function() {	
 	let catData = JSON.parse(this.responseText).cats;
-	console.log("catData", catData);
-}
+	CatStore.setAllCats(catData);
+	CatStore.ownerXHR();
+};
 
-oldCatStore.ownerLoadWorks = () => {
+oldCatStore.ownerLoadWorks = function() {
 	let ownerData = JSON.parse(this.responseText).owners;
-	console.log("ownerData", ownerData);
-}
+	CatStore.setAllOwners(ownerData);
+	let catArray = CatStore.getCats();
+	let ownerArray = CatStore.getOwners();
+	CatStore.combineArrays(catArray, ownerData);
+};
 
 oldCatStore.itBroke = () => {
-	console.log("It Broke");
+;	console.log("It Broke");
 }
 
 oldCatStore.catXHR =() => {
