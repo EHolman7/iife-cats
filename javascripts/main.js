@@ -7,3 +7,7 @@ document.getElementById("petstore").addEventListener("click", (event) => {
 	CatStore.adoptCat(catIndex)
 	}
 })
+
+document.getElementById("callan").addEventListener("click", (event) => {
+	CatStore.getCatsByOwner(2);
+});
